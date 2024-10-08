@@ -45,12 +45,18 @@ public class IntegerMatrix {
         }
         int[][] resultData = new int[this.linesLength][mat.columnsLength];
 
-
-        for (int i = 0; i < this.linesLength; i++) {
-            for (int j = 0; j < mat.columnsLength; j++) {
-                for (int k = 0; k < this.columnsLength; k++) {
-                    resultData[i][j] += this.matrix[i][k] * mat.matrix[k][j];
+        int sum = 0;
+        final int linesL = this.linesLength;
+        final int matColumnsL = mat.columnsLength;
+        final int columnsL = this.columnsLength;
+        for (int i = 0; i < linesL; i++) {
+            for (int j = 0; j < matColumnsL; j++) {
+                for (int k = 0; k < columnsL; k++) {
+                    sum += this.matrix[i][k] * mat.matrix[k][j];
                 }
+
+                resultData[i][j] = sum;
+                sum = 0;
             }
         }
 
@@ -59,15 +65,23 @@ public class IntegerMatrix {
 
 
 
+
+
+
+
+
     public static void main(String[] args) {
-        IntegerMatrix firstMatrix = new IntegerMatrix(new int[][] {{1, 2, 3}, {4, 5, 6}});
-        IntegerMatrix secondMatrix = new IntegerMatrix(new int[][] {{7, 8}, {9, 10}, {11, 12}});
-        
+        IntegerMatrix firstMatrix = new IntegerMatrix(new int[][] {{1,2,3}, {4,5,6}, {7,8,9}});
+        IntegerMatrix secondMatrix = new IntegerMatrix(new int[][] {{10,11,12}, {13,14,15}, {16,17,18}});
         try {
-           System.out.println(firstMatrix.multiplication(secondMatrix).toString());
+
+
+            System.out.println(firstMatrix.multiplication(secondMatrix).toString());
         }catch (IllegalArgumentException ex){
            System.out.println(ex.getMessage());
         }
+        firstMatrix = null;
+        secondMatrix = null;
     }
 
 }
