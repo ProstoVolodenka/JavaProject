@@ -71,8 +71,8 @@ public class IntegerMatrix {
 
 
     public static void main(String[] args) {
-        IntegerMatrix firstMatrix = new IntegerMatrix(new int[][] {{1,2,3}, {4,5,6}, {7,8,9}});
-        IntegerMatrix secondMatrix = new IntegerMatrix(new int[][] {{10,11,12}, {13,14,15}, {16,17,18}});
+        IntegerMatrix firstMatrix = new IntegerMatrix(new int[][] {{0,0,1,0}, {0,0,0,1}, {0,1,0,0}, {1,0,0,0}});
+        IntegerMatrix secondMatrix = new IntegerMatrix(new int[][] {{1,1,1,0}, {1,1,0,1}, {0,1,1,1},{1,0,1,1}});
         try {
 
 
